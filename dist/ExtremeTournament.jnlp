@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ExtremeTournament.jnlp">
+  <information>
+    <title>ExtremeTournament</title>
+    <vendor>MR</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ExtremeTournament.jar" size="6868015" download="eager" />
+    <jar href="lib\cglib-nodep-3.2.4.jar" size="350926" download="eager" />
+    <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
+    <jar href="lib\commons-exec-1.3.jar" size="54423" download="eager" />
+    <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\google-api-client-1.20.0.jar" size="194265" download="eager" />
+    <jar href="lib\google-api-services-oauth2-v2-rev146-1.25.0.jar" size="19238" download="eager" />
+    <jar href="lib\google-api-services-plus-v1-rev217-1.20.0.jar" size="78350" download="eager" />
+    <jar href="lib\google-http-client-1.20.0.jar" size="286717" download="eager" />
+    <jar href="lib\google-http-client-jackson-1.20.0.jar" size="6033" download="eager" />
+    <jar href="lib\google-oauth-client-1.20.0.jar" size="61092" download="eager" />
+    <jar href="lib\google-oauth-client-jetty-1.20.0.jar" size="5935" download="eager" />
+    <jar href="lib\gson-2.3.1.jar" size="210856" download="eager" />
+    <jar href="lib\guava-21.0-sources.jar" size="1489218" download="eager" />
+    <jar href="lib\guava-21.0.jar" size="2521113" download="eager" />
+    <jar href="lib\httpclient-4.5.3.jar" size="747794" download="eager" />
+    <jar href="lib\httpclient-4.5.4.jar" size="781831" download="eager" />
+    <jar href="lib\httpcore-4.4.6.jar" size="323824" download="eager" />
+    <jar href="lib\httpcore-4.4.7.jar" size="325123" download="eager" />
+    <jar href="lib\javax.mail-1.4.4.jar" size="495041" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\jbcrypt-0.3.jar" size="15505" download="eager" />
+    <jar href="lib\jfoenix-8.0.1.jar" size="2405715" download="eager" />
+    <jar href="lib\jna-3.3.0-platform.jar" size="841291" download="eager" />
+    <jar href="lib\jna-4.1.0.jar" size="914597" download="eager" />
+    <jar href="lib\json-simple-1.1.1.jar" size="23737" download="eager" />
+    <jar href="lib\jxbrowser-2.8.jar" size="681893" download="eager" />
+    <jar href="lib\mailapi-1.6.1.jar" size="300013" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="843090" download="eager" />
+    <jar href="lib\poi-3.13.jar" size="2497380" download="eager" />
+    <jar href="lib\poi-ooxml-3.13.jar" size="1142386" download="eager" />
+    <jar href="lib\poi-ooxml-schemas-3.13.jar" size="5641539" download="eager" />
+    <jar href="lib\restfb-3.8.0.jar" size="714374" download="eager" />
+    <jar href="lib\selenium-api-3.4.0.jar" size="106777" download="eager" />
+    <jar href="lib\selenium-chrome-driver-2.53.0.jar" size="10993" download="eager" />
+    <jar href="lib\selenium-chrome-driver-3.4.0.jar" size="9624" download="eager" />
+    <jar href="lib\selenium-java-2.53.0 (1).jar" size="2109" download="eager" />
+    <jar href="lib\selenium-java-2.53.0.jar" size="2109" download="eager" />
+    <jar href="lib\selenium-remote-driver-3.4.0.jar" size="323908" download="eager" />
+    <jar href="lib\selenium-server-standalone-2.7.0-patched-sources.jar" size="1483056" download="eager" />
+    <jar href="lib\servlet-api-2.5.jar" size="105112" download="eager" />
+    <jar href="lib\smtp-1.6.1.jar" size="62664" download="eager" />
+    <jar href="lib\wunderground-core-1.0.8-jar-with-dependencies.jar" size="3042937" download="eager" />
+    <jar href="lib\xmlbeans-2.6.0.jar" size="2730866" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ExtremeTournament" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="extremetournament.ExtremeTournament"  name="ExtremeTournament" />
+  <update check="always"/>
+</jnlp>
