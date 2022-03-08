@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PanTournois" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ListeTournamentController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #28252e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="24.0" layoutY="379.0" mnemonicParsing="false" onAction="#AjouterTournament" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Add" />
+            <Button layoutX="24.0" layoutY="430.0" mnemonicParsing="false" onAction="#Edit" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black" text="Update" />
+            <Button layoutX="24.0" layoutY="484.0" mnemonicParsing="false" onAction="#Delete" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black" text="Delete" />
+            <TextField fx:id="txt_nomT" layoutX="23.0" layoutY="53.0" prefHeight="30.0" prefWidth="180.0" promptText="Nom Tournament" />
+            <TextField fx:id="txt_Empl" layoutX="24.0" layoutY="151.0" prefHeight="30.0" prefWidth="180.0" promptText="Emplacment" />
+            <TextField fx:id="txt_Nompoule" layoutX="23.0" layoutY="240.0" prefHeight="30.0" prefWidth="180.0" promptText="Nom Poule" />
+            <Button layoutX="24.0" layoutY="328.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Resfresh" />
+            <ComboBox fx:id="txt_idmatch" layoutX="23.0" layoutY="196.0" prefHeight="30.0" prefWidth="180.0" />
+            <DatePicker fx:id="DateT" layoutX="23.0" layoutY="102.0" prefHeight="25.0" prefWidth="180.0" promptText="date" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table_Tournament" layoutX="242.0" layoutY="76.0" onMouseClicked="#getSelected" prefHeight="335.0" prefWidth="755.0">
+        <columns>
+          <TableColumn fx:id="col_NomTournamet" minWidth="0.0" prefWidth="190.0" text="NomTournament" />
+            <TableColumn fx:id="col_DateT" prefWidth="150.0" text="DateT" />
+            <TableColumn fx:id="col_emplacment" minWidth="0.0" prefWidth="235.0" text="Emplacment" />
+            <TableColumn fx:id="col_Nompoule" minWidth="0.0" prefWidth="193.0" text="Nom Poule" />
+        </columns>
+      </TableView>
+      <TextField fx:id="filterField" layoutX="247.0" layoutY="30.0" prefHeight="25.0" prefWidth="236.0" promptText="Search" />
+      <Label layoutX="653.0" layoutY="462.0" prefHeight="21.0" prefWidth="120.0" text="Voir Matchs : ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="782.0" layoutY="452.0" mnemonicParsing="false" onAction="#ControlerMatchs" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Controler Matchs" />
+   </children>
+</AnchorPane>

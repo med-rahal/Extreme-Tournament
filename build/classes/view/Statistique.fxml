@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1140.0" style="-fx-background-color: #ECECEC;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.StatistiqueController">
+   <children>
+      <ScrollPane fx:id="scrollStat" prefHeight="600.0" prefWidth="1140.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="840.0" prefWidth="1140.0">
+               <children>
+                  <Pane layoutX="387.0" layoutY="80.0" prefHeight="254.0" prefWidth="350.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutX="10.0" layoutY="-30.0" prefHeight="208.0" prefWidth="330.0" style="-fx-background-color: #00C0EF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 10;">
+                           <children>
+                              <BarChart fx:id="barChartp" horizontalGridLinesVisible="false" prefHeight="208.0" prefWidth="330.0" style="-fx-background-color: #DD4B39; -fx-background-radius: 10;" stylesheets="@stat.css" verticalGridLinesVisible="false">
+                                 <xAxis>
+                                    <CategoryAxis fx:id="axex" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="y" minorTickCount="0" minorTickVisible="false" prefHeight="208.0" prefWidth="20.0" side="LEFT" tickLabelFill="WHITE" tickLabelGap="5.0" tickMarkVisible="false" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </Pane>
+                        <Label layoutX="14.0" layoutY="213.0" prefHeight="30.0" prefWidth="254.0" style="-fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #DD4B39;" text="Top 10 Produits" />
+                        <Separator layoutX="10.0" layoutY="200.0" prefHeight="1.0" prefWidth="330.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="14.5" layoutY="80.0" prefHeight="254.0" prefWidth="350.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutX="10.0" layoutY="-30.0" prefHeight="211.0" prefWidth="330.0" style="-fx-background-color: #4183d7; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 10;">
+                           <children>
+                              <BarChart fx:id="barChartb" categoryGap="5.0" horizontalGridLinesVisible="false" prefHeight="208.0" prefWidth="330.0" style="-fx-background-color: #4183d7; -fx-background-radius: 10;" stylesheets="@stat.css" verticalGridLinesVisible="false">
+                                 <xAxis>
+                                    <CategoryAxis fx:id="axex1" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="y1" minorTickCount="0" minorTickVisible="false" prefHeight="208.0" prefWidth="20.0" side="LEFT" tickLabelFill="WHITE" tickLabelGap="5.0" tickMarkVisible="false" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </Pane>
+                        <Label layoutX="14.0" layoutY="213.0" prefHeight="30.0" prefWidth="254.0" style="-fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #4183d7;" text="Top 10 Boutiques" />
+                        <Separator layoutX="10.0" layoutY="200.0" prefHeight="1.0" prefWidth="330.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="22.0" layoutY="430.0" prefHeight="362.0" prefWidth="520.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <PieChart fx:id="pieChartProd" layoutX="25.0" layoutY="89.0" prefHeight="264.0" prefWidth="469.0" stylesheets="@stat.css" />
+                        <Pane layoutX="25.0" layoutY="-30.0" prefHeight="113.0" prefWidth="469.0" style="-fx-background-color: #DD4B39; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 10;">
+                           <children>
+                              <Pane prefHeight="113.0" prefWidth="23.0" style="-fx-background-color: #B13C2E;" />
+                              <Label fx:id="nbTot" layoutX="34.0" layoutY="33.0" prefHeight="26.0" prefWidth="264.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="nbtotal" />
+                              <Label layoutX="34.0" prefHeight="33.0" prefWidth="174.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;" text="Produits" />
+                              <Label fx:id="pourcentage" contentDisplay="CENTER" layoutX="34.0" layoutY="78.0" prefHeight="27.0" prefWidth="203.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="\% vendus" />
+                              <ProgressBar fx:id="progress" layoutX="34.0" layoutY="67.0" minHeight="-Infinity" opacity="0.78" prefHeight="7.0" prefWidth="400.0" progress="0.36" styleClass="ma-progress-bar" stylesheets="@stat.css" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="582.0" layoutY="430.0" prefHeight="362.0" prefWidth="520.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutX="25.0" layoutY="-30.0" prefHeight="113.0" prefWidth="470.0" style="-fx-background-color: #DD4B39; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 10;">
+                           <children>
+                              <Pane prefHeight="113.0" prefWidth="23.0" style="-fx-background-color: #B13C2E;" />
+                              <Label layoutX="41.0" layoutY="27.0" prefHeight="37.0" prefWidth="291.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;" text="Nombre d'utilistateurs" />
+                           </children>
+                        </Pane>
+                        <PieChart fx:id="pieChartU" layoutX="25.0" layoutY="89.0" prefHeight="264.0" prefWidth="469.0" styleClass="body" stylesheets="@stat.css" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="759.5" layoutY="80.0" prefHeight="254.0" prefWidth="350.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutX="10.0" layoutY="-30.0" prefHeight="208.0" prefWidth="330.0" style="-fx-background-color: #00A65A; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 10;">
+                           <children>
+                              <LineChart fx:id="lineChart" horizontalGridLinesVisible="false" prefHeight="208.0" prefWidth="330.0" style="-fx-background-color: #26B99A; -fx-background-radius: 10;" stylesheets="@stat.css" verticalGridLinesVisible="false">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis prefHeight="208.0" prefWidth="20.0" side="LEFT" stylesheets="@stat.css" tickLabelFill="WHITE" />
+                                 </yAxis>
+                              </LineChart>
+                           </children>
+                        </Pane>
+                        <Label layoutX="14.0" layoutY="213.0" prefHeight="30.0" prefWidth="254.0" style="-fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #26B99A;" text="Statistiques Annuelles" />
+                        <Separator layoutX="10.0" layoutY="200.0" prefHeight="1.0" prefWidth="330.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

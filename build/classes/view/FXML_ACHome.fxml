@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="681.0" prefWidth="1100.0" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ACHomeController">
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="1320.0" style="-fx-background-color: #eceff4; -fx-background-radius: 12; -fx-border-radius: 10;">
+        <children>
+            <AnchorPane layoutX="-20.0" prefHeight="715.0" prefWidth="330.0" style="-fx-background-color: #2e3440;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-20.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <ImageView fitHeight="124.0" fitWidth="135.0" layoutX="99.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../img/LogoExtreme.png" />
+                        </image>
+                    </ImageView>
+                    <Label layoutX="69.0" layoutY="160.0" prefHeight="33.0" prefWidth="240.0" text="Extreme Tournament" textFill="#d8dee9" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                        <font>
+                            <Font name="Arial" size="26.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="btnProfil" layoutX="10.0" layoutY="317.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Mon Profil" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font name="Manjari Regular" size="21.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btnTournois" layoutX="10.0" layoutY="374.0" mnemonicParsing="false" onAction="#Tournois" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Tournois" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font size="21.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btnAcc" layoutX="10.0" layoutY="266.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Acceuil" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font name="Manjari Regular" size="21.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btnEquipes" layoutX="10.0" layoutY="432.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Equipe" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font size="21.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btnProduits" layoutX="10.0" layoutY="488.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Produits" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font size="21.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btnForum" layoutX="10.0" layoutY="549.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="314.0" style="-fx-background-color: transparent;" text="Forum" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-4.0">
+                        <font>
+                            <Font size="21.0" />
+                        </font>
+                    </Button>
+                    <Separator layoutX="38.0" layoutY="312.0" prefHeight="5.0" prefWidth="255.0" />
+                    <Separator layoutX="38.0" layoutY="371.0" prefHeight="5.0" prefWidth="255.0" />
+                    <Separator layoutX="39.0" layoutY="427.0" prefHeight="5.0" prefWidth="255.0" />
+                    <Separator layoutX="38.0" layoutY="485.0" prefHeight="5.0" prefWidth="255.0" />
+                    <Separator layoutX="38.0" layoutY="544.0" prefHeight="5.0" prefWidth="255.0" />
+                </children>
+            </AnchorPane>
+            <Label layoutX="701.0" layoutY="700.0" text="All Rights Reserved Copyright © 2021-2022" />
+            <Label layoutX="738.0" layoutY="687.0" text="Designed by Runtime Terror" />
+            <Separator layoutX="309.0" layoutY="671.0" prefHeight="33.0" prefWidth="1015.0" />
+            <HBox fx:id="panstatus" layoutX="306.0" layoutY="-1.0" prefHeight="121.0" prefWidth="1015.0" style="-fx-background-color: #2e3440;" />
+         <AnchorPane fx:id="pantest2" layoutX="308.0" layoutY="289.0" prefHeight="568.0" prefWidth="1012.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="308.0" AnchorPane.rightAnchor="0.0" />
+        </children>
+    </AnchorPane>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
