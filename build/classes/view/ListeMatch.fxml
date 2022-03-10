@@ -30,6 +30,6 @@
             <TableColumn fx:id="col_emplacmentM" minWidth="0.0" prefWidth="210.0" text="Emplacment" />
         </columns>
       </TableView>
-      <TextField fx:id="filterField" layoutX="480.0" layoutY="29.0" onAction="#search" promptText="Search" />
+      <TextField fx:id="filterField" layoutX="480.0" layoutY="29.0" onAction="#search" prefHeight="25.0" prefWidth="228.0" promptText="Search" />
    </children>
 </AnchorPane>

@@ -9,7 +9,7 @@
 <AnchorPane fx:id="PanListeTournoiss" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TournoisVirtuelleReelController">
    <children>
       <AnchorPane layoutY="6.0" prefHeight="557.0" prefWidth="22.0" style="-fx-background-color: #28252e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label layoutX="164.0" layoutY="357.0" prefHeight="0.0" prefWidth="312.0" text="Tournois Virtuelle">
+      <Label layoutX="164.0" layoutY="357.0" prefHeight="0.0" prefWidth="312.0" text="Tournois Virtuel">
          <font>
             <Font name="Berlin Sans FB Bold" size="35.0" />
          </font>

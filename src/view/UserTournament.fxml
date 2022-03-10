@@ -34,7 +34,6 @@
       <DatePicker fx:id="DateT" layoutX="365.0" layoutY="125.0" prefHeight="25.0" prefWidth="180.0" promptText="date" />
       <TextField fx:id="txt_Empl" layoutX="365.0" layoutY="166.0" prefHeight="30.0" prefWidth="180.0" promptText="Emplacment" />
       <ComboBox fx:id="txt_idmatch" layoutX="365.0" layoutY="249.0" prefHeight="30.0" prefWidth="180.0" />
-      <TextField fx:id="txt_Nompoule" layoutX="365.0" layoutY="209.0" prefHeight="30.0" prefWidth="180.0" promptText="Nom Poule" />
       <Label layoutX="247.0" layoutY="79.0" prefHeight="20.0" prefWidth="86.0" text="Nom :">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -57,7 +56,7 @@
       </Label>
       <Button layoutX="678.0" layoutY="127.0" mnemonicParsing="false" onAction="#CreerTournois" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Créer " textFill="WHITE" />
       <Button layoutX="678.0" layoutY="204.0" mnemonicParsing="false" onAction="#refreshTableuser" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Afficher" textFill="WHITE" />
-      <Label layoutX="471.0" prefHeight="17.0" prefWidth="327.0" text="Tournois Virtuelle">
+      <Label layoutX="471.0" prefHeight="17.0" prefWidth="327.0" text="Tournois Virtuel">
          <font>
             <Font name="Berlin Sans FB Bold" size="35.0" />
          </font>
@@ -67,5 +66,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <ComboBox fx:id="txt_Nompoule" layoutX="365.0" layoutY="212.0" prefHeight="25.0" prefWidth="180.0" promptText="Poule" />
    </children>
 </AnchorPane>

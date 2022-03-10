@@ -44,6 +44,7 @@ public class Matchservices {
 
           {
         
+             
             String req_ajout = "insert into matchs (nom_equipeA ,nom_equipeB, date_match ,emplacement) values (?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(req_ajout);
           //  ps.setInt(1,M.getId_match());
@@ -107,6 +108,24 @@ public class Matchservices {
 
         return Matchs;
     }
+     public ObservableList<Match> afficherMatchh( int id ) {
+        ObservableList<Match> Matchs =FXCollections.observableArrayList();
+        try {
+            String req = "SELECT * FROM `matchs` where  id_match='"+
+                    id+"' ";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                    Match match = new Match(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5));
+                    Matchs.add(match);
+            }
+        }
+        catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+
+        return Matchs;
+    }
    
     
 //    
@@ -136,7 +155,7 @@ public class Matchservices {
     ObservableList<String> list2 =FXCollections.observableArrayList();
              
       try {
-            String req = "select * from equipe";
+            String req = "select * from equipe  ";
             PreparedStatement ps = connection.prepareStatement(req);
             ResultSet rst = ps.executeQuery();
             while (rst.next()) {

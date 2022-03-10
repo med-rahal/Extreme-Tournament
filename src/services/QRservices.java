@@ -46,7 +46,7 @@ public class QRservices {
     public String QR (String A) throws SQLException{
               
              try {
-            String qrCodeData = " Today we have "+A+"";
+            String qrCodeData = " Yes your Tournament "+A+" is created with succes ";
             String filePath = "C:\\Users\\ibrahim\\Documents\\NetBeansProjects\\ExtremeTournament\\src\\img\\QR\\"+A+".png";
             
             String charset = "UTF-8"; // or "ISO-8859-1"
@@ -118,6 +118,8 @@ public class QRservices {
 //        Result qrCodeResult = new MultiFormatReader().decode(binaryBitmap, hintMap);
 //        return qrCodeResult.getText();
 //    }
+
+
         
     
 

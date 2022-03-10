@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
@@ -34,6 +37,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import org.controlsfx.control.Notifications;
+import org.controlsfx.control.PrefixSelectionComboBox;
 import services.Tournamentservices;
 import singleton.SingletonConnection;
 
@@ -62,7 +66,6 @@ public class UserTournamentSportifController implements Initializable {
     private TextField txt_Empl;
     @FXML
     private ComboBox<Integer> txt_idmatch;
-    @FXML
     private TextField txt_Nompoule;
     Tournament tournament = null;
     ObservableList<Tournament> TournamentList = FXCollections.observableArrayList();
@@ -72,6 +75,9 @@ public class UserTournamentSportifController implements Initializable {
     Connection connection = null;
     String query = null;
     private Parent fxml;
+    ObservableList<String> list5 =Ts.filecombBoTEST();     
+
+
 
 
     int index = -1;
@@ -81,14 +87,58 @@ public class UserTournamentSportifController implements Initializable {
 
     @FXML
     private TableView<Tournament> table_TournamentUserSportif;
-    @FXML
-    private TableColumn<Tournament, String> Col_join;
     private Callback<TableColumn<Tournament, String>, TableCell<Tournament, String>> CellFactory;
+    @FXML
+    private PrefixSelectionComboBox<String> txt_poule;
 
     
-    /**
-     * Initializes the controller class.
-     */
+    private boolean validatemplacment() {
+        
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+
+        Matcher m = p.matcher(txt_Empl.getText());
+        if (m.find() && m.group().equals(txt_Empl.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Valider votre Emplacement  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+     private boolean validatenomT(){
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m = p.matcher(txt_nomT.getText());
+        if(m.find() && m.group().equals(txt_nomT.getText())){
+            return true;
+        }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Valider Votre nom de Tournois ");
+                alert.setHeaderText(null);
+                alert.setContentText("Error");
+                alert.showAndWait();
+
+            return false;
+        }
+    }
+     
+      private boolean validateChamps() {
+        
+        if ((txt_nomT.getText().trim().length() > 0 ) && (txt_poule.getValue().trim().length() > 0 ) &&(txt_Empl.getText().trim().length() >0 ) &&(txt_idmatch.getValue().toString().trim().length()>0 )  &&(txt_idmatch.getValue().toString().trim().length() >0 )) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Remplissez vos champs svp  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
     
      public void afficherTournamentUser() {
         TournamentList = Ts.afficherTournamentUser();
@@ -111,7 +161,6 @@ public class UserTournamentSportifController implements Initializable {
         col_DateT.setCellValueFactory(new PropertyValueFactory<>("dateT"));
        // col_idmatch.setCellValueFactory(new PropertyValueFactory<>("id_match"));
         col_Nompoule.setCellValueFactory(new PropertyValueFactory<>("nomPoule"));
-        Col_join.setCellFactory(CellFactory);
         table_TournamentUserSportif.setItems(TournamentList);
 
     }
@@ -121,14 +170,16 @@ public class UserTournamentSportifController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //  LoadDate();
+       LoadDate();
        afficherTournamentUser();
        txt_idmatch.setItems(list3);
+       txt_poule.setItems(list5);
+       
+
 
     }    
     
 
-    
 
     @FXML
     public void CreerVotreMatch(ActionEvent event) {
@@ -148,15 +199,12 @@ public class UserTournamentSportifController implements Initializable {
         Tournament T = new Tournament();
         int idmatch = txt_idmatch.getSelectionModel().getSelectedItem();
         java.sql.Date dateTour = java.sql.Date.valueOf(DateT.getValue());
-        T= new Tournament(txt_nomT.getText(),txt_Empl.getText(),dateTour,idmatch,txt_Nompoule.getText());
+        T= new Tournament(txt_nomT.getText(),txt_Empl.getText(),dateTour,idmatch,txt_poule.getValue(),1);
 
         
-          // if(validatenomT()){
+          if (validatenomT() && validatemplacment() && validateChamps()){
              TSS.ajouterT(T);
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Success");
-//            alert.setContentText("Tournament is added successfully!");
-//            alert.show();
+
             Notifications notificationBuilder = Notifications.create()
             .title("Alert").text("Tournament créer avec Succes").graphic(null).hideAfter(javafx.util.Duration.seconds(5))
             .position(Pos.TOP_LEFT)
@@ -172,7 +220,7 @@ public class UserTournamentSportifController implements Initializable {
     notificationBuilder.show();
             
             
-        
+          }
         
     }
     

@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -144,6 +146,23 @@ public class ListeMatchController implements Initializable {
 
         
     }    
+     private boolean validatemplacment() {
+        
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+
+        Matcher m = p.matcher(txt_EmplM.getText());
+        if (m.find() && m.group().equals(txt_EmplM.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Valider votre Emplacement  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
 
  
 
@@ -180,7 +199,7 @@ public class ListeMatchController implements Initializable {
                                 System.out.println(M);
 
         try {
-            if(NomEquipeA !=NomEquipeB ){
+            if((NomEquipeA != NomEquipeB ) && (validatemplacment())){
             MatchSer.ajouterM(M);
             System.out.println(M);
 
@@ -189,10 +208,12 @@ public class ListeMatchController implements Initializable {
             alert.setContentText("Tournament is added successfully!");
             alert.show();
             }
+            else 
+            {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("EROOR");
             alert.setContentText("You Adedd Same Team");
-            alert.show();
+            alert.show();}
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

@@ -34,8 +34,8 @@ public class Tournamentservices {
             PreparedStatement pst = connection.prepareStatement(req_index);
             ResultSet rst = pst.executeQuery();
             if (rst.next()) {
-
-                String req_ajout = "insert into tournoi (nomT,emplacementT,dateT,id_match,nomPoule) values (?,?,?,?,?)";
+                
+                String req_ajout = "insert into tournoi (nomT,emplacementT,dateT,id_match,nomPoule,id_user) values (?,?,?,?,?,?)";
                 PreparedStatement ps = connection.prepareStatement(req_ajout);
                // ps.setInt(1, t.getIdT());
                 ps.setString(1, t.getNomT());
@@ -44,6 +44,8 @@ public class Tournamentservices {
                 ps.setDate(3, new java.sql.Date(t.getDateT().getTime()));
                 ps.setInt(4, t.getId_match());
                 ps.setString(5,t.getNomPoule());
+                ps.setInt(6, t.getId_user());
+
                 
                 ps.executeUpdate();
             }
@@ -90,7 +92,7 @@ public class Tournamentservices {
             PreparedStatement ps = connection.prepareStatement(req);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                    Tournament tournament = new Tournament(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getInt(5),rs.getString(6));
+                    Tournament tournament = new Tournament(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getInt(5),rs.getString(6),1);
                     Tournaments.add(tournament);
             }
         }
@@ -108,7 +110,7 @@ public class Tournamentservices {
             PreparedStatement ps = connection.prepareStatement(req);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                    Tournament tournament = new Tournament(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getInt(5),rs.getString(6));
+                    Tournament tournament = new Tournament(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getInt(5),rs.getString(6),1);
                     Tournamentss.add(tournament);
             }
         }
@@ -120,7 +122,27 @@ public class Tournamentservices {
     }
     
     
- 
+//  public ObservableList<Integer> filecombo()
+//    {
+//         ObservableList<Integer> list8 =FXCollections.observableArrayList();
+//             
+//      try {
+//            String req = "select * from user";
+//            PreparedStatement ps = connection.prepareStatement(req);
+//            ResultSet rst = ps.executeQuery();
+//            while (rst.next()) {
+//                list8.add(rst.getInt("id_user"));
+//                 
+//            
+//            }
+//          
+//    
+//    }   catch (SQLException ex) {
+//            System.err.println(ex.getMessage());
+//    }
+//     return list8;
+//     
+//    }
     
     
     
@@ -165,6 +187,69 @@ public class Tournamentservices {
             System.err.println(ex.getMessage());
     }
      return list3;
+     
+    }
+ 
+    public ObservableList<String> filecombBo()
+    {
+         ObservableList<String> list4 =FXCollections.observableArrayList();
+      try {
+            String req = "select * from poule";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ResultSet rst = ps.executeQuery();
+            while (rst.next()) {
+                list4.add(rst.getString("nomPoule"));
+                 
+            
+            }
+          
+    
+    }   catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+    }
+     return list4;
+     
+    }
+
+     public ObservableList<String> filecombBoTEST()
+    {
+         ObservableList<String> list5 =FXCollections.observableArrayList();
+      try {
+            String req = "select * from poule";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ResultSet rst = ps.executeQuery();
+            while (rst.next()) {
+                list5.add(rst.getString("nomPoule"));
+                 
+            
+            }
+          
+    
+    }   catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+    }
+     return list5;
+     
+    }
+     
+       public ObservableList<String> filecombBodeux()
+    {
+         ObservableList<String> list6 =FXCollections.observableArrayList();
+      try {
+            String req = "select * from poule";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ResultSet rst = ps.executeQuery();
+            while (rst.next()) {
+                list6.add(rst.getString("nomPoule"));
+                 
+            
+            }
+          
+    
+    }   catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+    }
+     return list6;
      
     }
 

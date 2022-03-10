@@ -46,7 +46,7 @@ public class SMSservices {
      * @throws java.io.IOException
      * @throws java.net.ProtocolException
      */
-    public static void main(String[] args) throws Exception {
+        public void SendSms() throws IOException{
          // This URL is used for sending messages
     String myURI = "https://api.bulksms.com/v1/messages";
 
@@ -55,7 +55,7 @@ public class SMSservices {
     String myPassword = "Testpidev123";
 
     // the details of the message we want to send
-    String myData = "{to: \"21656216257\", encoding: \"UNICODE\", body: \"waaaa\"}";
+    String myData = "{to: \"21656216257\", encoding: \"UNICODE\", body: \"Your Tournament is created \"}";
 
     // if your message does not contain unicode, the "encoding" is not required:
     // String myData = "{to: \"1111111\", body: \"Hello Mr. Smith!\"}";
@@ -100,5 +100,6 @@ public class SMSservices {
       in.close();
     }
     request.disconnect();
-  }
-}
+        }}
+
+

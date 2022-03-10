@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
 
 <AnchorPane fx:id="PanTournois" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserTournamentSportifController">
    <children>
@@ -27,7 +28,6 @@
       <DatePicker fx:id="DateT" layoutX="365.0" layoutY="125.0" prefHeight="25.0" prefWidth="180.0" promptText="date" />
       <TextField fx:id="txt_Empl" layoutX="365.0" layoutY="166.0" prefHeight="30.0" prefWidth="180.0" promptText="Emplacment" />
       <ComboBox fx:id="txt_idmatch" layoutX="365.0" layoutY="249.0" prefHeight="30.0" prefWidth="180.0" />
-      <TextField fx:id="txt_Nompoule" layoutX="365.0" layoutY="209.0" prefHeight="30.0" prefWidth="180.0" promptText="Nom Poule" />
       <Label layoutX="247.0" layoutY="79.0" prefHeight="20.0" prefWidth="86.0" text="Nom :">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -63,11 +63,11 @@
       <TableView fx:id="table_TournamentUserSportif" layoutX="247.0" layoutY="296.0" prefHeight="141.0" prefWidth="686.0">
         <columns>
           <TableColumn fx:id="col_NomTournamet" minWidth="0.0" prefWidth="165.0" text="NomTournament" />
-            <TableColumn fx:id="col_DateT" prefWidth="93.0" text="DateT" />
-            <TableColumn fx:id="col_emplacment" minWidth="0.0" prefWidth="178.0" text="Emplacment" />
-            <TableColumn fx:id="col_Nompoule" minWidth="0.0" prefWidth="131.0" text="Nom Poule" />
-            <TableColumn fx:id="Col_join" prefWidth="118.0" text="Join" />
+            <TableColumn fx:id="col_DateT" prefWidth="178.0" text="DateT" />
+            <TableColumn fx:id="col_emplacment" minWidth="0.0" prefWidth="173.0" text="Emplacment" />
+            <TableColumn fx:id="col_Nompoule" minWidth="0.0" prefWidth="169.0" text="Nom Poule" />
         </columns>
       </TableView>
+      <PrefixSelectionComboBox fx:id="txt_poule" layoutX="365.0" layoutY="212.0" prefHeight="25.0" prefWidth="180.0" promptText="Poule" />
    </children>
 </AnchorPane>

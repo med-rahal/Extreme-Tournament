@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -31,8 +34,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.controlsfx.control.Notifications;
+import services.SMSservices;
 import services.Tournamentservices;
 import singleton.SingletonConnection;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import services.QRservices;
 
 /**
  * FXML Controller class
@@ -48,7 +56,7 @@ public class UserTournamentController implements Initializable {
     @FXML
     private TextField txt_Empl;
     @FXML
-    private TextField txt_Nompoule;
+    private ComboBox<String> txt_Nompoule;
     @FXML
     private ComboBox<Integer> txt_idmatch;
     @FXML
@@ -65,109 +73,172 @@ public class UserTournamentController implements Initializable {
     Tournamentservices Ts = new Tournamentservices();
 
     ObservableList<Integer> list3 = Ts.filecombBoxx();
+    //ObservableList<Integer> list8 = Ts.filecombo();
+
+    ObservableList<String> list6 = Ts.filecombBodeux();
+
     Connection connection = null;
     String query = null;
     private Parent fxml;
 
-
     int index = -1;
-   PreparedStatement preparedStatement = null;
+    PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-
 
     @FXML
     private TableView<Tournament> table_TournamentUser;
 
-    
     /**
      * Initializes the controller class.
      */
-    
-     public void afficherTournamentUser() {
+    public void afficherTournamentUser() {
         TournamentList = Ts.afficherTournamentUser();
 //    col_idT.setCellValueFactory(new PropertyValueFactory<>("idT"));
         col_NomTournamet.setCellValueFactory(new PropertyValueFactory<>("nomT"));
         col_DateT.setCellValueFactory(new PropertyValueFactory<>("dateT"));
         col_emplacment.setCellValueFactory(new PropertyValueFactory<>("emplacementT"));
-       //     col_idmatch.setCellValueFactory(new PropertyValueFactory<>("id_match"));
+        //     col_idmatch.setCellValueFactory(new PropertyValueFactory<>("id_match"));
         col_Nompoule.setCellValueFactory(new PropertyValueFactory<>("nomPoule"));
         table_TournamentUser.setItems(TournamentList);
-        
+
     }
-     
-     
-     private void LoadDate() {
+
+    private void LoadDate() {
         connection = SingletonConnection.getConn();
         //col_idT.setCellValueFactory(new PropertyValueFactory<>("idT"));
         col_NomTournamet.setCellValueFactory(new PropertyValueFactory<>("nomT"));
         col_emplacment.setCellValueFactory(new PropertyValueFactory<>("emplacementT"));
         col_DateT.setCellValueFactory(new PropertyValueFactory<>("dateT"));
-       // col_idmatch.setCellValueFactory(new PropertyValueFactory<>("id_match"));
+        // col_idmatch.setCellValueFactory(new PropertyValueFactory<>("id_match"));
         col_Nompoule.setCellValueFactory(new PropertyValueFactory<>("nomPoule"));
 
-
     }
-     
-     
 
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //  LoadDate();
-       afficherTournamentUser();
-       txt_idmatch.setItems(list3);
+        //  LoadDate();
+        afficherTournamentUser();
+        txt_idmatch.setItems(list3);
+        txt_Nompoule.setItems(list6);
 
-    }    
-    
-
-    
+    }
 
     @FXML
-    public void CreerVotreMatch(ActionEvent event) {
-        try{ 
-        fxml= FXMLLoader.load(getClass().getResource("/view/ListeMatch.fxml"));
-        PanTournois.getChildren().removeAll();
-        PanTournois.getChildren().setAll(fxml);
-        }catch (IOException e){
-        }
-        }
-    
+    public void CreerVotreMatch(ActionEvent event) throws SQLException {
+        try {
+            FXMLLoader Loader = new FXMLLoader(getClass().getResource("/view/ListeMatchUser.fxml"));
+            // fxml= FXMLLoader.load(getClass().getResource("/view/ListeMatchUser.fxml"));
+            Parent root = Loader.load();
+            ListeMatchUserController Match = Loader.getController();
+            Match.initdata(table_TournamentUser.getSelectionModel().getSelectedItem());
 
-    @FXML
-    public void CreerTournois(ActionEvent event) throws SQLException, SQLException {
+            PanTournois.getChildren().removeAll();
+            PanTournois.getChildren().setAll(root);
+        } catch (IOException e) {
+        }
+    }
+
+    private boolean validatemplacment() {
         
-        Tournamentservices TSS= new Tournamentservices();
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+
+        Matcher m = p.matcher(txt_Empl.getText());
+        if (m.find() && m.group().equals(txt_Empl.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Valider votre Emplacement  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+     private boolean validateChamps() {
+        
+      //  Pattern p = Pattern.compile("[a-zA-Z]+");
+        if ((txt_nomT.getText().trim().length() > 0 ) && (txt_Nompoule.getValue().trim().length() > 0 ) &&(txt_Empl.getText().trim().length() >0 ) &&(txt_idmatch.getValue().toString().trim().length()>0 )  &&(txt_idmatch.getValue().toString().trim().length() >0 )) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Remplissez vos champs svp  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+    private boolean validatenomT() {
+        
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+                Pattern pp = Pattern.compile("[a-zA-Z]+");
+
+        Matcher m = p.matcher(txt_nomT.getText());
+        Matcher mm = pp.matcher(txt_Empl.getText());
+        if (m.find() && m.group().equals(txt_nomT.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Valider champs Nom Tournoi  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+
+//        if (mm.find() && mm.group().equals(txt_Empl.getText())) {
+//            return true;
+//        } else {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Valider champs emplacment ");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Error");
+//            alert.showAndWait();
+//
+//            return false;
+//        }
+
+    }
+
+    @FXML
+    public void CreerTournois(ActionEvent event) throws SQLException, SQLException, IOException {
+
+        Tournamentservices TSS = new Tournamentservices();
+        SMSservices Sm = new SMSservices();
+        QRservices Qr = new QRservices();
         Tournament T = new Tournament();
         int idmatch = txt_idmatch.getSelectionModel().getSelectedItem();
         java.sql.Date dateTour = java.sql.Date.valueOf(DateT.getValue());
-        T= new Tournament(txt_nomT.getText(),txt_Empl.getText(),dateTour,idmatch,txt_Nompoule.getText());
+        T = new Tournament(txt_nomT.getText(), txt_Empl.getText(), dateTour, idmatch, txt_Nompoule.getValue(), 1);
 
-        
-          // if(validatenomT()){
-             TSS.ajouterT(T);
+        if (validatenomT() && validatemplacment() && validateChamps()) {
+            TSS.ajouterT(T);
+            Sm.SendSms();
+            Qr.QR(T.getNomT());
 //            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //            alert.setTitle("Success");
 //            alert.setContentText("Tournament is added successfully!");
 //            alert.show();
             Notifications notificationBuilder = Notifications.create()
-            .title("Alert").text("Tournament créer avec Succes").graphic(null).hideAfter(javafx.util.Duration.seconds(5))
-            .position(Pos.TOP_LEFT)
-            .onAction(new EventHandler<ActionEvent>(){
-                    public void handle(ActionEvent event)
-                    {
-                     System.out.println("yessss");
+                    .title("Alert").text("Tournament créer avec Succes").graphic(null).hideAfter(javafx.util.Duration.seconds(5))
+                    .position(Pos.TOP_LEFT)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        public void handle(ActionEvent event) {
+                            System.out.println("yessss");
 
-                    }
-                      
-            });
-    notificationBuilder.darkStyle();
-    notificationBuilder.show();
-            
-            
-        
-        
+                        }
+
+                    });
+            notificationBuilder.darkStyle();
+            notificationBuilder.show();
+
+        }
+
     }
-    
+
     @FXML
     private void refreshTableuser(ActionEvent event) {
 //        
@@ -199,8 +270,4 @@ public class UserTournamentController implements Initializable {
         afficherTournamentUser();
     }
 
-
-
 }
-    
-       

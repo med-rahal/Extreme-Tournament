@@ -72,6 +72,9 @@ public class ListeTournamentController implements Initializable {
      @FXML
     private ComboBox<Integer> txt_idmatch;
     private Parent fxml;
+     @FXML
+    private ComboBox<String> txt_poule;
+    
 
 
    
@@ -82,7 +85,9 @@ public class ListeTournamentController implements Initializable {
     Tournament tournament = null;
     Tournamentservices Ts = new Tournamentservices();
     ObservableList<Tournament> TournamentList = FXCollections.observableArrayList();
-    ObservableList<Integer> list1 =Ts.filecombBox();     
+    ObservableList<Integer> list1 =Ts.filecombBox();  
+    ObservableList<String> list4 =Ts.filecombBo();     
+
     Connection connexion;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -95,12 +100,10 @@ public class ListeTournamentController implements Initializable {
     @FXML
     private TextField filterField;
     @FXML
-    private TableColumn<?, ?> col_Nompoule;
-    @FXML
-    private TextField txt_Nompoule;
+    private TableColumn<Tournament, String> col_Nompoule;
     @FXML
     private AnchorPane PanTournois;
-    
+   
     
     
     
@@ -122,6 +125,7 @@ public class ListeTournamentController implements Initializable {
         LoadDate();
         afficherTournament();
         txt_idmatch.setItems(list1);
+        txt_poule.setItems(list4);
         FilteredList<Tournament> filteredData = new FilteredList<>(TournamentList, t -> true);
 		
 		
@@ -156,7 +160,23 @@ public class ListeTournamentController implements Initializable {
                 
                 
     }
-    
+    private boolean validatemplacment() {
+        
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+
+        Matcher m = p.matcher(txt_Empl.getText());
+        if (m.find() && m.group().equals(txt_Empl.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Valider votre Emplacement  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
     
     private boolean validatenomT(){
         Pattern p = Pattern.compile("[a-zA-Z]+");
@@ -165,7 +185,7 @@ public class ListeTournamentController implements Initializable {
             return true;
         }else{
                 Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Validate NOM TOURNOI");
+                alert.setTitle("Valider Votre nom de Tournois");
                 alert.setHeaderText(null);
                 alert.setContentText("Error");
                 alert.showAndWait();
@@ -173,6 +193,36 @@ public class ListeTournamentController implements Initializable {
             return false;
         }
     }
+    
+    private boolean validateChamps() {
+        
+      //  Pattern p = Pattern.compile("[a-zA-Z]+");
+        if ((txt_nomT.getText().trim().length() > 0 ) && (txt_poule.getValue().trim().length() > 0 ) &&(txt_Empl.getText().trim().length() >0 ) &&(txt_idmatch.getValue().toString().trim().length()>0 )  &&(txt_idmatch.getValue().toString().trim().length() >0 )) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Remplissez vos champs svp  ");
+            alert.setHeaderText(null);
+            alert.setContentText("Error");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+//     private boolean validateExistT(){
+//
+//        if(txt_nomT.getText() !=
+//            return true;
+//        }else{
+//                Alert alert = new Alert(AlertType.WARNING);
+//                alert.setTitle("Valider Votre nom de Tournois");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Error");
+//                alert.showAndWait();
+//
+//            return false;
+//}
+//    
     
     
     
@@ -218,10 +268,10 @@ public class ListeTournamentController implements Initializable {
         Tournament T = new Tournament();
         int idmatch = txt_idmatch.getSelectionModel().getSelectedItem();
         java.sql.Date dateTour = java.sql.Date.valueOf(DateT.getValue());
-        T= new Tournament(txt_nomT.getText(),txt_Empl.getText(),dateTour,idmatch,txt_Nompoule.getText());
+        T= new Tournament(txt_nomT.getText(),txt_Empl.getText(),dateTour,idmatch, txt_poule.getValue(),1);
 
         
-          // if(validatenomT()){
+          if (validatenomT() && validatemplacment() && validateChamps()){
              TSS.ajouterT(T);
 //            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //            alert.setTitle("Success");
@@ -234,14 +284,16 @@ public class ListeTournamentController implements Initializable {
                     public void handle(ActionEvent event)
                     {
                      System.out.println("yessss");
-
                     }
+                  
             
             
+                       
             });
     notificationBuilder.darkStyle();
     notificationBuilder.show();
-            
+          }
+          
             
         
         
@@ -267,7 +319,7 @@ public class ListeTournamentController implements Initializable {
              connection = SingletonConnection.getConn();
             //String value1 = txt_id.getText();
             String value1 = txt_Empl.getText();
-            String value2 = txt_Nompoule.getText();
+            String value2 = txt_poule.getValue();
             String value3 = txt_nomT.getText();
             String sql = "update tournoi set emplacementT= '"+value1+"',nomPoule= '"+
                     value2+"',nomT= '"+value3+"' where idT='"+table_Tournament.getSelectionModel().getSelectedItem().getIdT()+"' ";
@@ -308,7 +360,7 @@ public class ListeTournamentController implements Initializable {
 
     txt_nomT.setText(col_NomTournamet.getCellData(index).toString());
         txt_Empl.setText(col_emplacment.getCellData(index).toString());
-            txt_Nompoule.setText(col_Nompoule.getCellData(index).toString());
+            txt_poule.setValue(col_Nompoule.getCellData(index));
         
     }
 
@@ -341,7 +393,9 @@ public class ListeTournamentController implements Initializable {
                         resultSet.getString("emplacementT"),
                         resultSet.getDate("dateT"),
                         resultSet.getInt("id_match"),
-                        resultSet.getString("nomPoule")
+                        resultSet.getString("nomPoule"),
+                        resultSet.getInt("id_user")
+
                 ));
                 table_Tournament.setItems(TournamentList);
 

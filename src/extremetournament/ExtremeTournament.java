@@ -39,7 +39,8 @@ public class ExtremeTournament extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/FXML_ACHome.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/ListeTournament"
+                    + ".fxml"));
             Scene scene = new Scene(parent);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
