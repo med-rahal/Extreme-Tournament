@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ExtremeTournament.jnlp">
+  <information>
+    <title>ExtremeTournament</title>
+    <vendor>acer</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ExtremeTournament.jar" size="8941911" download="eager" />
+    <jar href="lib\NotificationAPI.jar" size="2821" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\javax.mail-1.6.2.jar" size="659031" download="eager" />
+    <jar href="lib\log4j-api-2.17.1.jar" size="301872" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="843090" download="eager" />
+    <jar href="lib\xmlbeans-3.1.0.jar" size="2579738" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ExtremeTournament" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="extremetournament.ExtremeTournament"  name="ExtremeTournament" />
+  <update check="always"/>
+</jnlp>
