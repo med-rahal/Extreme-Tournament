@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1015.0" stylesheets="@../css/css2.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserController">
+   <children>
+      <TextField fx:id="ftitre" layoutX="50.0" layoutY="148.0" prefHeight="107.0" prefWidth="293.0" promptText="titre" />
+      <TextField fx:id="fstatus" layoutX="51.0" layoutY="297.0" prefHeight="107.0" prefWidth="293.0" promptText="status" />
+      <TextField fx:id="photo_path" layoutX="34.0" layoutY="30.0" promptText="image" />
+      <TableView fx:id="tablePub" layoutX="452.0" layoutY="148.0" onMouseClicked="#getselected" prefHeight="252.0" prefWidth="481.0" stylesheets="@../css/tableview.css">
+         <columns>
+            <TableColumn fx:id="c_titre" prefWidth="138.0" text="titre" />
+            <TableColumn fx:id="c_status" prefWidth="181.0" text="status" />
+            <TableColumn fx:id="c_image" minWidth="0.0" prefWidth="161.0" text="image" />
+         </columns>
+      </TableView>
+      <Button layoutX="53.0" layoutY="426.0" mnemonicParsing="false" onAction="#ajouterpublication" text="Ajouter" textFill="#0d0d0d">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="253.0" layoutY="426.0" mnemonicParsing="false" onAction="#supprimerpub" text="Supprimer">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="771.0" layoutY="103.0" mnemonicParsing="false" onAction="#afficherpublication" prefHeight="35.0" prefWidth="162.0" text="Afficher publication">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="153.0" layoutY="426.0" mnemonicParsing="false" onAction="#Modifierpub" text="Modifier">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="782.0" layoutY="426.0" mnemonicParsing="false" onAction="#showdetails" prefHeight="31.0" prefWidth="141.0" text="Commentaires">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <ImageView fx:id="photoe" fitHeight="124.0" fitWidth="150.0" layoutX="603.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="142.0" layoutY="480.0" mnemonicParsing="false" onAction="#upload" prefHeight="45.0" prefWidth="98.0" text="Upload">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <ImageView blendMode="LIGHTEN" fitHeight="61.0" fitWidth="58.0" layoutX="481.0" layoutY="409.0" onMouseClicked="#ajouterlike">
+         <image>
+            <Image url="@../css/likebutton.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

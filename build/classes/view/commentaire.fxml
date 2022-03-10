@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1015.0" stylesheets="@../css/css2.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CommentsController">
+   <children>
+      <TableView fx:id="tableComments" layoutX="381.0" layoutY="157.0" prefHeight="407.0" prefWidth="632.0" stylesheets="@../css/tableview.css">
+         <columns>
+            <TableColumn fx:id="c_comments" prefWidth="619.3333129882812" text="Commentaires" />
+         </columns>
+      </TableView>
+      <TextField fx:id="id_publication" layoutX="25.0" layoutY="10.0" prefHeight="25.0" prefWidth="128.0" />
+      <TextField fx:id="ftext" layoutX="40.0" layoutY="139.0" prefHeight="240.0" prefWidth="277.0" promptText="Tapez votre commentaire !">
+         <font>
+            <Font size="21.0" />
+         </font></TextField>
+      <Button layoutX="814.0" layoutY="112.0" mnemonicParsing="false" onAction="#reportcommentaire" style="-fx-background-color: #ffffff;" text="Report" textFill="#170c0c">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="910.0" layoutY="113.0" mnemonicParsing="false" onAction="#afficherCommentaire" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Refresh" textFill="#1b1212">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <ImageView blendMode="COLOR_BURN" fitHeight="68.0" fitWidth="72.0" layoutX="928.0" layoutY="2.0" onMouseClicked="#goback">
+         <image>
+            <Image url="@../css/RETURN.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="6.0" layoutY="65.0" text="Ecrire votre commentaire dans Extreme Tournament !" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="19.0" layoutY="407.0" mnemonicParsing="false" onAction="#ajoutercommentaire" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Ajouter" textFill="#070505">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="132.0" layoutY="407.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: #ffffff;" text="Modifier">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="240.0" layoutY="407.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Supprimer">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

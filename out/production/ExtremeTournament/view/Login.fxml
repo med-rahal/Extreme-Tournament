@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #581e78;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+   <children>
+      <AnchorPane layoutX="327.0" layoutY="1.0" prefHeight="400.0" prefWidth="375.0" style="-fx-background-color: #c9c7c9;">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="375.0">
+               <children>
+                  <Text layoutX="72.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to ExtremeTournament" wrappingWidth="252.13671875" />
+                  <TextField fx:id="email" layoutX="61.0" layoutY="102.0" prefHeight="25.0" prefWidth="264.0" promptText="email" />
+                  <TextField fx:id="password" layoutX="61.0" layoutY="163.0" prefHeight="25.0" prefWidth="264.0" promptText="password" />
+                  <Button fx:id="login" layoutX="116.0" layoutY="270.0" mnemonicParsing="false" onAction="#login_user" prefHeight="25.0" prefWidth="117.0" text="login" />
+                  <JFXButton fx:id="new_pass" layoutX="208.0" layoutY="225.0" onAction="#create_newPass" prefHeight="25.0" prefWidth="145.0" text="create new password" textFill="#400505d9" />
+                  <Text layoutX="63.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Did you forgot password ?" wrappingWidth="223.13671875" />
+                  <Text layoutX="61.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="101.13671875" />
+                  <Text layoutX="61.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="64.13671875" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="logo" fitHeight="200.0" fitWidth="200.0" layoutX="57.0" layoutY="14.0">
+         <image>
+            <Image url="@../../../../../logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="signup" layoutX="86.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#create_user" prefHeight="25.0" prefWidth="128.0" text="Signup" />
+   </children>
+</AnchorPane>
