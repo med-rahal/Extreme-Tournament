@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PanListeTournoiss" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.TournoisVirtuelleReelController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="557.0" prefWidth="22.0" style="-fx-background-color: #28252e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="164.0" layoutY="357.0" prefHeight="0.0" prefWidth="312.0" text="Tournois Virtuel">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="677.0" layoutY="352.0" prefHeight="0.0" prefWidth="312.0" text="Tournois Sportif">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="240.0" fitWidth="246.0" layoutX="168.0" layoutY="57.0" onMouseClicked="#TournoisVirtuelle" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Virtuelle-modified.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="279.0" fitWidth="242.0" layoutX="669.0" layoutY="63.0" onMouseClicked="#TournoisSportif" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Tournois%20Sportif-modified.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

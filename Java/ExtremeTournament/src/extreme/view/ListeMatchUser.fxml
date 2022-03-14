@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.ListeMatchUserController">
+   <children>
+      <TextField fx:id="id_t" layoutX="979.0" layoutY="479.0" prefHeight="22.0" prefWidth="9.0" />
+      <AnchorPane layoutY="6.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="24.0" layoutY="321.0" mnemonicParsing="false" onAction="#AjouterMatch" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Add" textFill="SILVER" />
+            <TextField fx:id="txt_EmplM" layoutX="23.0" layoutY="183.0" prefHeight="30.0" prefWidth="180.0" promptText="Emplacment" />
+            <Button layoutX="24.0" layoutY="259.0" mnemonicParsing="false" onAction="#refreshTableM" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black;" text="Resfresh" textFill="SILVER" />
+            <DatePicker fx:id="txt_DateM" layoutX="23.0" layoutY="129.0" prefHeight="25.0" prefWidth="180.0" promptText="date" />
+            <ComboBox fx:id="ComboEA" layoutX="23.0" layoutY="22.0" prefHeight="25.0" prefWidth="180.0" promptText="Nom Equipe A" />
+            <ComboBox fx:id="ComboEB" layoutX="24.0" layoutY="75.0" prefHeight="25.0" prefWidth="180.0" promptText="Nom Equipe B" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table_Match" layoutX="228.0" layoutY="76.0" prefHeight="474.0" prefWidth="746.0">
+        <columns>
+          <TableColumn fx:id="col_NomEquipeA" minWidth="0.0" prefWidth="178.0" text="Nom Equipe A" />
+            <TableColumn fx:id="col_NomEquipeB" prefWidth="169.0" text="Nom Equipe B" />
+            <TableColumn fx:id="col_DateM" prefWidth="188.0" text="DateM" />
+            <TableColumn fx:id="col_emplacmentM" minWidth="0.0" prefWidth="210.0" text="Emplacment" />
+        </columns>
+      </TableView>
+      <TextField fx:id="filterField" layoutX="480.0" layoutY="29.0" onAction="#search" prefHeight="25.0" prefWidth="287.0" promptText="Search" />
+      <TextField fx:id="id_t1" layoutX="979.0" layoutY="509.0" prefHeight="25.0" prefWidth="14.0" />
+   </children>
+</AnchorPane>

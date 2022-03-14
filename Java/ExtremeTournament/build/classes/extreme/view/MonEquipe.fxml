@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1015.0" stylesheets="@../../../../../ExtremeTournament/src/CSS/bg.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.MonEquipeController">
+   <children>
+      <Pane fx:id="MonEquipe" layoutY="8.0" prefHeight="549.0" prefWidth="1006.0" stylesheets="@../CSS/cssButtom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label ellipsisString="" layoutX="664.0" layoutY="93.0" text="Retourner vers Gérer equipe" textFill="#0037ff" textOverrun="LEADING_ELLIPSIS" underline="true" />
+            <Pane layoutY="162.0" opacity="0.88" prefHeight="232.0" prefWidth="605.0" style="-fx-background-color: #414349;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="203.0" prefHeight="21.0" prefWidth="91.0" text="Password" textFill="WHITE" textOverrun="CLIP" />
+                  <TextField fx:id="f_pass" alignment="CENTER" layoutX="105.0" layoutY="198.0" promptText="Mot de passe" />
+                  <Button layoutX="544.0" layoutY="165.0" mnemonicParsing="false" onAction="#setimage" text="Upload" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="121.0" prefHeight="21.0" prefWidth="91.0" text="Image" textFill="WHITE" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="136.0" prefHeight="21.0" prefWidth="91.0" text="Participants" textFill="WHITE" />
+                  <TextField fx:id="photo_path" layoutX="358.0" layoutY="147.0" prefHeight="66.0" prefWidth="186.0" />
+                  <ComboBox fx:id="f_cate" layoutX="358.0" layoutY="55.0" prefWidth="150.0" promptText="Catégorie" />
+                  <TextField fx:id="f_nbe" alignment="CENTER" layoutX="105.0" layoutY="131.0" prefHeight="31.0" prefWidth="186.0" promptText="Entrer le nombre " />
+                  <TextField fx:id="f_nome" alignment="CENTER" layoutX="105.0" layoutY="55.0" promptText="Entre nom d'quipe" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="60.0" prefHeight="21.0" prefWidth="91.0" text="Nom Equipe" textFill="WHITE" />
+               </children>
+            </Pane>
+            <TextField fx:id="recherche_equipe" alignment="CENTER" layoutX="377.0" layoutY="123.0" prefHeight="39.0" prefWidth="211.0" promptText="Recherche" style="-fx-background-color: #000000;" />
+            <Label layoutX="675.0" layoutY="14.0" text="Heure Actuelle" textFill="WHITE" />
+            <Label fx:id="time" alignment="CENTER" layoutX="636.0" layoutY="38.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #000000;" text="sqd" textFill="WHITE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="IM" fitHeight="86.0" fitWidth="174.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/myteam.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="609.0" layoutY="190.0" opacity="0.89" prefHeight="181.0" prefWidth="224.0" style="-fx-background-color: #414349;">
+               <children>
+                  <Button layoutX="28.0" layoutY="123.0" mnemonicParsing="false" onAction="#Modifiermonequipe" prefHeight="37.0" prefWidth="167.0" style="-fx-background-color: #000000; -fx-background-radius: 20px;" text="Modifier mon equipe" textFill="#e5e1eb" />
+                  <Button layoutX="22.0" layoutY="21.0" mnemonicParsing="false" onAction="#ajouterequipe" prefHeight="31.0" prefWidth="174.0" style="-fx-background-color: #000000;" text="Ajouter Equipe" textFill="#e6e5f1" />
+                  <Button layoutX="22.0" layoutY="76.0" mnemonicParsing="false" onAction="#supprimer_equipe" prefHeight="31.0" prefWidth="183.0" style="-fx-background-color: #000000;" text="Supprimer mon equipe" textFill="#e6e5f1" />
+               </children>
+            </Pane>
+            <TableView fx:id="tableEE" layoutX="-2.0" layoutY="397.0" onMouseClicked="#selected_item" prefHeight="167.0" prefWidth="768.0" stylesheets="@../CSS/tableview.css">
+              <columns>
+                <TableColumn fx:id="col_nome" prefWidth="185.0" text="Nom equipe" />
+                  <TableColumn fx:id="col_parts" prefWidth="180.0" text="Participants" />
+                  <TableColumn fx:id="col_ime" minWidth="0.0" prefWidth="0.0" text="Image" />
+                  <TableColumn fx:id="col_cate" minWidth="0.0" prefWidth="138.33331298828125" text="Catégorie" />
+                  <TableColumn fx:id="col_passw" minWidth="0.0" prefWidth="364.66668701171875" text="Passwod" />
+              </columns>
+            </TableView>
+            <Button layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#ConsulterMonEquipe" prefHeight="113.0" prefWidth="125.0" style="-fx-background-color: #000000;" text="Voir Mon Equipe" textFill="WHITE" />
+            <ImageView fx:id="photoe" fitHeight="150.0" fitWidth="147.0" layoutX="853.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="220.0" layoutY="130.0" mnemonicParsing="false" onAction="#afficherMesEquipe" style="-fx-background-color: #000000;" text="Liste des equipes" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

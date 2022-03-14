@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PanTournois" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.UserTournamentSportifController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #28252e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="46.0" layoutY="241.0" prefHeight="89.0" prefWidth="139.0" text="Commencer a Creér votre Tournois " textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table_TournamentUserSportif" layoutX="247.0" layoutY="296.0" prefHeight="141.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="col_NomTournamet" minWidth="0.0" prefWidth="165.0" text="NomTournament" />
+            <TableColumn fx:id="col_DateT" prefWidth="171.0" text="DateT" />
+            <TableColumn fx:id="col_emplacment" minWidth="0.0" prefWidth="162.0" text="Emplacment" />
+            <TableColumn fx:id="col_Nompoule" minWidth="0.0" prefWidth="187.0" text="Nom Poule" />
+        </columns>
+      </TableView>
+      <Button layoutX="768.0" layoutY="470.0" mnemonicParsing="false" onAction="#CreerVotreMatch" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Creer votre Match !" />
+      <TextField fx:id="txt_nomT" layoutX="365.0" layoutY="74.0" prefHeight="30.0" prefWidth="180.0" promptText="Nom Tournament" />
+      <DatePicker fx:id="DateT" layoutX="365.0" layoutY="125.0" prefHeight="25.0" prefWidth="180.0" promptText="date" />
+      <TextField fx:id="txt_Empl" layoutX="365.0" layoutY="166.0" prefHeight="30.0" prefWidth="180.0" promptText="Emplacment" />
+      <ComboBox fx:id="txt_idmatch" layoutX="365.0" layoutY="249.0" prefHeight="30.0" prefWidth="180.0" />
+      <Label layoutX="247.0" layoutY="79.0" prefHeight="20.0" prefWidth="86.0" text="Nom :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="171.0" prefHeight="20.0" prefWidth="100.0" text="Emplacment:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="127.0" prefHeight="20.0" prefWidth="100.0" text="Date : ">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="214.0" prefHeight="20.0" prefWidth="100.0" text="Nom Poule :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="678.0" layoutY="127.0" mnemonicParsing="false" onAction="#CreerTournois" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Créer " textFill="WHITE" />
+      <Button layoutX="678.0" layoutY="204.0" mnemonicParsing="false" onAction="#refreshTableuser" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: Black " text="Afficher" textFill="WHITE" />
+      <Label layoutX="471.0" prefHeight="17.0" prefWidth="327.0" text="Tournois sportif">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="254.0" prefHeight="20.0" prefWidth="100.0" text="Nombre :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="txt_poule" layoutX="365.0" layoutY="212.0" prefHeight="25.0" prefWidth="180.0" promptText="Poule" />
+   </children>
+</AnchorPane>

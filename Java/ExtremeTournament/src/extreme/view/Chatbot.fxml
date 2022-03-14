@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.ChatbotController">
+   <children>
+      <JFXTextArea fx:id="t2" layoutX="68.0" layoutY="85.0" prefHeight="539.0" prefWidth="464.0" />
+      <JFXTextField fx:id="t1" layoutX="68.0" layoutY="643.0" onAction="#setOnAction" prefHeight="36.0" prefWidth="464.0" />
+      <JFXButton fx:id="theme" layoutX="497.0" layoutY="28.0" prefHeight="25.0" prefWidth="61.0" text="theme" />
+   </children>
+</AnchorPane>

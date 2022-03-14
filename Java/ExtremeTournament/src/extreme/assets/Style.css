@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 26, 2017, 8:49:18 AM
+    Author     : tushar
+*/
+
+.root{
+    -fx-background-color:linear-gradient(lavender,lightcyan,lightseagreen);
+}
+#y:hover{
+    -fx-color:lightpink;
+    -fx-background-color: lightgoldenrodyellow;
+}
+#x:hover{
+    -fx-background-color: lightskyblue;
+    -fx-background-fills:lightskyblue;
+    -fx-text-fill:red;
+    -fx-font:sans-serif;
+    -fx-fill: lightskyblue;
+}
+
+#a{
+   -fx-font-style:italic;
+    -fx-font-size:80px;
+    -fx-text-fill:darkcyan;
+}
+#z.root{
+    -fx-background-color:linear-gradient(lightsteelblue,lightgoldenrodyellow,lightcyan);
+}
+#z1.root{
+    -fx-background-color:linear-gradient(lavender,lightcyan,lightseagreen);
+}
+#bg{
+    -fx-background-color: linear-gradient(lightseagreen,lightcyan,lightsteelblue,lavenderblush);
+}

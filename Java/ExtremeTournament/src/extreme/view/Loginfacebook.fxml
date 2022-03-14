@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extreme.view.LoginfacebookController">
+   <children>
+      <Circle fx:id="profile_picture" fill="DODGERBLUE" layoutX="288.0" layoutY="119.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="name" layoutX="265.0" layoutY="200.0" prefHeight="56.0" prefWidth="146.0" text="Full Name" />
+      <JFXButton fx:id="login_button" layoutX="237.0" layoutY="273.0" onAction="#login_facebookprofile" prefHeight="25.0" prefWidth="101.0" text="Login " />
+      <JFXButton fx:id="home" layoutX="503.0" layoutY="350.0" onAction="#redirectingtoHome" prefHeight="25.0" prefWidth="62.0" text="Home" />
+   </children>
+</AnchorPane>
