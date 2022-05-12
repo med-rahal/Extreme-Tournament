@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ExtremeTournament{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+
+        <!-- All stylesheet and icons css  -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/icofont.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/lightcase.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/modernizr-3.11.2.min.js') }}"></script>
+        <script src="{{ asset('assets/js/circularProgressBar.min.js') }}"></script>
+        <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/lightcase.js') }}"></script>
+        <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+        <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/plugins.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+
+
+
+    {% endblock %}
+</head>
+
+<body>
+{% block header %}
+    <!-- ==========Header Section Starts Here========== -->
+    <header class="header-section">
+        <div class="container">
+            <div class="header-holder d-flex flex-wrap justify-content-between align-items-center">
+                <div class="brand-logo d-none d-lg-inline-block">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="{{ asset ('assets/images/logo/logo.png') }} "alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-menu-part">
+                    <div class="header-top">
+                        <div class="header-top-area">
+                            <ul class="left">
+                                <li>
+                                    <i class="icofont-ui-call"></i> <span>+21656216257</span>
+                                </li>
+                                <li>
+                                    <i class="icofont-location-pin"></i> Tunis - Ariana
+                                </li>
+                            </ul>
+                            <ul class="social-icons d-flex align-items-center">
+                                <li>
+                                    <a href="#" class="fb"><i class="icofont-facebook-messenger"></i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-bottom">
+                        <div class="header-wrapper justify-content-lg-end">
+                            <div class="mobile-logo d-lg-none">
+                                <a href="index.html"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="logo"></a>
+                            </div>
+                            <div class="menu-area">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="{{ path('pubtri') }}" class="active">Home</a>
+
+
+
+                                    </li>
+
+                                    <li>
+                                        <a href="#0">Features</a>
+                                        <ul class="submenu">
+                                            <li><a href="{{ path ('app_About') }}">About</a></li>
+
+                                            <li><a href="{{ path ('app_Gallery') }}">gallery</a></li>
+                                            <li>
+                                                <a href="{{ path ('app_game')}}">games</a>
+
+                                            </li>
+                                            <li><a href="{{ path ('app_Partners') }}">partners</a></li>
+                                            <li>
+                                                <a href="{{ path ('app_team')}}">teams</a>
+
+                                            </li>
+
+                                            <li>
+                                                <a href="{{ path('app_shop') }}">Shop</a>
+
+                                            </li>
+                                            <li><a href="{{ path ('app_shop_cart') }}">SHOP CARTE</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ path ('app_reclamation') }}">RECLAMATION</a></li>
+                                    <li>
+                                        <a href="{{ path ('listepubF') }}">Blog</a>
+
+                                    </li>
+                                    <li><a href="{{ path ('app_Contact') }}">Contact</a></li>
+                                </ul>
+                                <a href="{{ path('app_login') }}" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
+                                <a href="{{ path('app_signup') }}" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span></a>
+
+                                <!-- toggle icons -->
+                                <div class="header-bar d-lg-none">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="ellepsis-bar d-lg-none">
+                                    <i class="icofont-info-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- ==========Header Section Ends Here========== -->
+
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+    <!-- ================ footer Section start Here =============== -->
+    <footer class="footer-section">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-3 justify-content-center g-lg-0">
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="{{ asset ('assets/images/footer/icons/01.png') }}" alt="Phone-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>Phone Number : +21656216257</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="{{ asset('assets/images/footer/icons/02.png') }}" alt="email-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>Email : youremail@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="{{ asset('assets/images/footer/icons/03.png') }}" alt="location-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>Address : Tunis - Ariana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle padding-top padding-bottom" style="background-image: url(assets/images/footer/bg.jpg);">
+            <div class="container">
+                <div class="row padding-lg-top">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="footer-middle-item-wrapper">
+                            <div class="footer-middle-item mb-lg-0">
+                                <div class="fm-item-title mb-4">
+                                    <img src="assets/images/logo/logo.png" alt="logo">
+                                </div>
+                                <div class="fm-item-content">
+                                    <p class="mb-4">Upropriate brand economca sound technolog after covalent technology enable prospective wastng markets whereas propriate and brand economca sound technolog</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer-bottom-content text-center">
+                            <p>&copy;2022 <a href="{{ path('app_home') }}">ExtremeTournament</a> - eSpost And Sport Platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ footer Section end Here =============== -->
+
+
+{% endblock %}
+
+</html>

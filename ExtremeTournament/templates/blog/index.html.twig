@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div class="count">
+    {{ publications.getTotalItemCount }}
+</div>
+
+
+
+
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+    <!-- ==========shape image Starts Here========== -->
+    <div class="body-shape">
+        <img src="assets/images/shape/body-shape.png" alt="shape">
+    </div>
+    <!-- ==========shape image end Here========== -->
+
+
+
+
+    <!-- ===========Banner Section start Here========== -->
+    <section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+        <div class="container">
+            <div class="section-wrapper text-center text-uppercase">
+                <h2 class="pageheader-title">Forum</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">blog Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- ===========Banner Section Ends Here========== -->
+    <body>
+
+
+    <a class="btn btn-danger" href="{{ path('addpubF')}}">Add Post</a>
+
+
+
+    <!-- ===========Blog Section Start Here========== -->
+    {% for i in publications %}
+
+            <div class="container">
+                <div class="section-wrapper" style="margin-top: 50px">
+
+                        <div class="col-lg-8 col-12">
+                            <article>
+                                <div class="post-item-2">
+                                    <div class="post-inner">
+                                        <div class="post-thumb">
+                                            <img src="assets/images/blog/single/01.jpg" alt="blog">
+                                        </div>
+                                        <div class="post-content">
+                                            <h2>{{ i.titre }}</h2>
+                                            <ul class="lab-ul post-date">
+                                                <li><span><i class="icofont-ui-calendar"></i> {{ i.dateCreation|date }}
+												</span></li>
+
+                                                </li>
+                                            </ul>
+                                            <p>{{ i.status }}</p>
+                                            <a class="btn btn-danger" href="{{ path('df',{'id':i.getid_publication})}}">delete</a>
+                                            <a class="btn btn-danger" href="{{ path('updatepF',{'id':i.getid_publication})}}">update</a>
+                                            <a class="btn btn-danger" href="{{ path('listecomF',{'id':i.getid_publication})}}">show comments</a>
+
+
+
+                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+
+
+
+                                                        <div class="rateyo" id= "rating"
+                                                             data-rateyo-rating="4"
+                                                             data-rateyo-num-stars="5"
+                                                             data-rateyo-score="3">
+                                                        </div>
+
+                                                        <span class='result'>0</span>
+                                                        <input type="hidden" name="rating">
+                                            </div>
+                                        </div>
+                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+                                        <script>
+
+
+                                            $(function () {
+                                                $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+                                                    var rating = data.rating;
+                                                    $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+                                                    $(this).parent().find('.result').text('rating :'+ rating);
+                                                    $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+                                                });
+                                            });
+
+                                        </script>
+
+                                        </div>
+                            </article>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- ===========Blog Section Ends Here========== -->
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('set', 'transport', 'beacon');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+    </body>
+    {% endfor %}
+
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(publications) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<body>
+<!-- preloader start here -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- preloader ending here -->
+
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
+<!-- scrollToTop ending here -->
+
+<!-- ==========shape image Starts Here========== -->
+<div class="body-shape">
+    <img src="{{ asset('assets/images/shape/body-shape.png') }}" alt="shape">
+</div>
+<!-- ==========shape image end Here========== -->
+
+
+
+
+<!-- ===========PageHeader Section Start Here========== -->
+<section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+    <div class="container">
+        <div class="section-wrapper text-center text-uppercase">
+            <h2 class="pageheader-title">our photo gallery</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- ===========PageHeader Section Ends Here========== -->
+
+
+<!-- ===========Gallery Section Ends Here========== -->
+<div class="gallery-section padding-top padding-bottom">
+    <div class="container">
+        <ul class="gallery-filter">
+            <li data-filter="*" class="is-checked"><span class="category">Show All</span> <span class="itemcount">09</span></li>
+            <li data-filter=".origin"><span class="category">origin</span> <span class="itemcount">04</span></li>
+            <li data-filter=".steam"><span class="category">steam</span> <span class="itemcount">03</span></li>
+            <li data-filter=".playstation"><span class="category">playstation</span> <span class="itemcount">02</span></li>
+            <li data-filter=".uplay"><span class="category">uplay</span> <span class="itemcount">04</span></li>
+        </ul>
+        <div class="row g-4 masonary-gallery">
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item origin uplay">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/01.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/01.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item steam">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/02.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/02.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item playstation">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/03.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/03.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item origin">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/04.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/04.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item steam uplay">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/05.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/05.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item origin">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/06.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/06.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item playstation">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/07.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/07.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item steam uplay">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/08.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/08.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 masonary-item origin uplay">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/gallery/09.jpg" alt="gallery">
+                    </div>
+                    <div class="gallery-content">
+                        <a href="assets/images/gallery/09.jpg" class="img-pop" data-rel="lightcase"><i class="icofont-eye"></i></a>
+                        <h3 class="title">Alphabet Matching Class</h3>
+                        <span>Playstation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===========Gallery Section Ends Here========== -->
+
+
+
+
+
+
+<!-- All Needed JS -->
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="assets/js/circularProgressBar.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/lightcase.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('set', 'transport', 'beacon');
+    ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+</body>
+{% endblock %}

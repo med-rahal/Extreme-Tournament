@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+    <body>
+
+
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <!-- Flashy depends on jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Load Flashy default JavaScript -->
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <!-- Include Flashy default partial -->
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+    <!-- preloader start here -->
+
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+    <!-- ==========shape image Starts Here========== -->
+    <div class="body-shape">
+        <img src="assets/images/shape/body-shape.png" alt="shape">
+    </div>
+    <!-- ==========shape image end Here========== -->
+
+
+
+
+    <!-- ===========Banner Section start Here========== -->
+    <section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+        <div class="container">
+            <div class="section-wrapper text-center text-uppercase">
+                <h2 class="pageheader-title">Comment Section</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">blog Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- ===========Banner Section Ends Here========== -->
+
+    <a class="btn btn-danger" href="{{ path('addcommentF',{'id':id})}}">Add Comment</a>
+    <!-- ===========Blog Section Start Here========== -->
+    {% for i in commentaires %}
+
+            <div class="container">
+                <div class="section-wrapper" style="margin-top: 50px">
+
+                    <div class="col-lg-8 col-12">
+                        <article>
+                            <div class="post-item-2">
+                                <div class="post-inner">
+                                    <div class="post-thumb">
+                                        <img src="assets/images/blog/single/01.jpg" alt="blog">
+                                    </div>
+                                    <div class="post-content">
+                                        <h2>{{ i.text }}</h2>
+                                        <ul class="lab-ul post-date">
+                                            <li><span><i class="icofont-ui-calendar"></i> {{ i.date_comment | date }}
+												</span></li>
+
+                                        </ul>
+                                        <p></p>
+                                        <a class="btn btn-danger" href="{{ path('dcF',{'id':i.getId()})}}">delete</a>
+                                        <a class="btn btn-danger" href="{{ path('updatecomment',{'id':i.getId()})}}">update</a>
+                                        <a class="btn btn-danger" href="{{ path('reportecomF',{'id':i.getId()})}}">Report</a>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
+                </div>
+            </div>
+
+                <!-- ===========Blog Section Ends Here========== -->
+
+
+
+
+                <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+                <script>
+                    window.ga = function () {
+                        ga.q.push(arguments)
+                    };
+                    ga.q = [];
+                    ga.l = +new Date;
+                    ga('create', 'UA-XXXXX-Y', 'auto');
+                    ga('set', 'anonymizeIp', true);
+                    ga('set', 'transport', 'beacon');
+                    ga('send', 'pageview')
+                </script>
+                <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+        </body>
+    {% endfor %}
+
+{% endblock %}
